@@ -86,7 +86,7 @@ export default function Hero() {
                             Join the early access list to influence the product and get priority access at launch.
                         </p>
 
-                        <WaitlistForm variant="hero" />
+                        <WaitlistForm source="hero" />
 
                         <div className="mt-5 flex flex-col items-center justify-center gap-2 text-sm text-white/50 md:flex-row md:gap-8">
                             <div className="flex items-center gap-2">

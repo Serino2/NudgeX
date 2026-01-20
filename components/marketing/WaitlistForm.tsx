@@ -1,48 +1,79 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { motion } from "framer-motion";
 
 type Props = {
-    variant?: "hero" | "final";
+    source: "hero" | "footer";
+    className?: string;
 };
 
-export default function WaitlistForm({ variant = "hero" }: Props) {
+export default function WaitlistForm({ source, className = "" }: Props) {
     const [email, setEmail] = useState("");
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [message, setMessage] = useState("");
 
-    function onSubmit(e: React.FormEvent) {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // TODO: koppel aan API route / server action
-        // Voor nu: alleen UI
-        setEmail("");
-    }
+        setStatus("loading");
+        setMessage("");
 
-    const inputClass =
-        variant === "final"
-            ? "h-12 rounded-full border border-[#00d4ff]/30 bg-black/60 px-6 text-white placeholder:text-white/40 focus-visible:ring-0 focus-visible:ring-offset-0"
-            : "h-12 rounded-full border-0 bg-white/10 px-6 text-white placeholder:text-white/40 focus-visible:ring-0 focus-visible:ring-offset-0";
+        try {
+            const response = await fetch("/api/waitlist", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, source }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setStatus("success");
+                setMessage(data.message || "You're on the list! 🎉");
+                setEmail("");
+            } else {
+                setStatus("error");
+                setMessage(data.error || "Something went wrong");
+            }
+        } catch {
+            setStatus("error");
+            setMessage("Network error. Please try again.");
+        }
+    };
 
     return (
-        <form
-            onSubmit={onSubmit}
-            className="flex w-full flex-col gap-3 md:flex-row md:items-center md:gap-4"
-        >
-            <Input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                className={inputClass}
-                aria-label="Email address"
-            />
-            <Button
-                type="submit"
-                className="h-12 rounded-full px-7 font-semibold shadow-[0_4px_15px_rgba(0,212,255,0.3)]"
-            >
-                Join the waitlist
-            </Button>
+        <form onSubmit={handleSubmit} className={className}>
+            <div className="flex flex-col gap-4 md:flex-row">
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    required
+                    disabled={status === "loading" || status === "success"}
+                    className="flex-1 rounded-full border-2 border-[#00d4ff]/30 bg-[#0a0a14]/80 px-7 py-4 text-white placeholder:text-white/40 transition focus:border-[#00d4ff] focus:outline-none focus:ring-2 focus:ring-[#00d4ff]/20 disabled:opacity-50"
+                />
+
+                <button
+                    type="submit"
+                    disabled={status === "loading" || status === "success"}
+                    className="rounded-full bg-gradient-to-r from-[#0099ff] to-[#00d4ff] px-9 py-4 font-semibold text-white shadow-[0_4px_15px_rgba(0,212,255,0.3)] transition hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,212,255,0.5)] disabled:opacity-50 disabled:hover:translate-y-0"
+                >
+                    {status === "loading" ? "Joining..." : status === "success" ? "Joined! ✓" : "Join the waitlist"}
+                </button>
+            </div>
+
+            {message && (
+                <motion.p
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`mt-3 text-sm ${
+                        status === "success" ? "text-green-400" : "text-red-400"
+                    }`}
+                >
+                    {message}
+                </motion.p>
+            )}
         </form>
     );
 }

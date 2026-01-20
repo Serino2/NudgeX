@@ -56,3 +56,6 @@ Thumbs.db
 
 # Security
 *.pem
+/lib/generated/prisma
+
+/generated/prisma

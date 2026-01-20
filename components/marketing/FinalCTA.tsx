@@ -29,7 +29,7 @@ export default function FinalCTA() {
                         </h3>
 
                         <div className="mx-auto max-w-[520px]">
-                            <WaitlistForm variant="final" />
+                            <WaitlistForm source="footer" className="max-w-[500px] mx-auto" />
                         </div>
 
                         <div className="mt-8 flex flex-col items-center justify-center gap-2 text-sm text-white/50 md:flex-row md:gap-10">
