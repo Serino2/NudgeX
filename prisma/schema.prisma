@@ -9,8 +9,8 @@ datasource db {
 
 model WaitlistEntry {
   id        String   @id @default(cuid())
-  email     String   @unique
-  source    String?
+  email     String   @unique @db.VarChar(254)
+  source    String?  @db.VarChar(50)
   createdAt DateTime @default(now())
 
   @@index([createdAt])

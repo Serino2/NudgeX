@@ -67,15 +67,28 @@ export default function StrategySection() {
                 </StaggerOnView>
 
                 <RevealOnView delay={0.05} y={18}>
-                    <div className="relative mx-auto mt-14 max-w-[800px] overflow-hidden rounded-2xl border-2 border-[#00d4ff]/20 bg-gradient-to-br from-[#00d4ff]/5 to-[#0099ff]/5 p-10">
-                        <div className="pointer-events-none absolute right-5 top-5 text-6xl opacity-10">🎯</div>
-                        <p className="text-xl font-semibold leading-relaxed text-white">
+                    <div className="relative mx-auto mt-14 max-w-[860px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-10 backdrop-blur-md md:p-12">
+                        {/* left accent rail */}
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-transparent via-[#00d4ff]/70 to-transparent" />
+
+                        {/* subtle glow */}
+                        <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#00d4ff]/10 blur-3xl" />
+                        <div className="pointer-events-none absolute -left-24 -bottom-24 h-64 w-64 rounded-full bg-[#0099ff]/10 blur-3xl" />
+
+                        {/* statement */}
+                        <p className="text-balance text-2xl font-semibold leading-relaxed text-white md:text-[28px]">
                             We&apos;re building the core of what matters most:
                             <br />
-                            helping teams follow up faster, without losing control.
+                            <span className="bg-gradient-to-br from-white to-[#00d4ff] bg-clip-text text-transparent">
+                                helping teams follow up faster, without losing control.
+                            </span>
                         </p>
+
+                        {/* faint grid texture (optional but nice) */}
+                        <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.35)_1px,transparent_0)] [background-size:22px_22px]" />
                     </div>
                 </RevealOnView>
+
             </Container>
         </section>
     );

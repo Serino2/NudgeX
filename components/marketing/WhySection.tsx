@@ -6,10 +6,22 @@ import StaggerOnView, { staggerItem } from "@/components/marketing/StaggerOnView
 import { motion } from "framer-motion";
 
 const problems = [
-    "Responding too late to important follow-ups",
-    "No clear overview of open follow-ups",
-    "Follow-ups slipping through the cracks",
-    "Spending too much time on manual follow-ups",
+    {
+        text: "Responding too late to important follow-ups",
+        label: "Timing breaks down"
+    },
+    {
+        text: "No clear overview of open follow-ups",
+        label: "Lack of visibility"
+    },
+    {
+        text: "Follow-ups slipping through the cracks",
+        label: "Ownership unclear"
+    },
+    {
+        text: "Spending too much time on manual follow-ups",
+        label: "High manual overhead"
+    }
 ];
 
 export default function WhySection() {
@@ -28,19 +40,29 @@ export default function WhySection() {
                 </RevealOnView>
 
                 <StaggerOnView stagger={0.06}>
-                    <div className="nx-problem-grid relative mx-auto mb-16 grid max-w-[900px] grid-cols-1 gap-[3px] rounded-2xl bg-gradient-to-br from-[#00d4ff]/20 to-[#0099ff]/20 p-[3px] md:grid-cols-2">
-                        {problems.map((text) => (
+                    <div className="relative mx-auto mb-16 grid max-w-[900px] grid-cols-1 gap-4 md:grid-cols-2">
+                        {problems.map((problem) => (
                             <motion.div
-                                key={text}
+                                key={problem.text}
                                 variants={staggerItem}
-                                whileHover={{ scale: 1.02 }}
-                                transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                                className="group relative bg-black/95 px-8 py-10 text-white/60 hover:bg-[#14141e]/95 hover:text-white"
+                                whileHover={{ y: -4 }}
+                                transition={{ type: "spring", stiffness: 220, damping: 22 }}
+                                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] px-8 py-9 text-left text-white/70 backdrop-blur-sm"
                             >
-                <span className="pointer-events-none absolute right-5 top-5 text-2xl opacity-30 transition duration-300 group-hover:rotate-[10deg] group-hover:opacity-60">
-                  ⚠
-                </span>
-                                {text}
+                                {/* subtle corner glow */}
+                                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                    <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-[#00d4ff]/10 blur-3xl" />
+                                </div>
+
+                                {/* indicator dot */}
+                                <div className="mb-4 flex items-center gap-3">
+                                    <span className="h-2 w-2 rounded-full bg-[#00d4ff]/70" />
+                                    <span className="text-xs uppercase tracking-widest text-white/40">
+                                        {problem.label}
+                                    </span>
+                                </div>
+
+                                <p className="text-lg leading-relaxed">{problem.text}</p>
                             </motion.div>
                         ))}
                     </div>
