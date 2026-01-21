@@ -12,7 +12,7 @@ export default function FinalCTA() {
 
                 <RevealOnView delay={0.08} y={18}>
                     <p className="mx-auto mb-14 max-w-[700px] text-lg text-white/60">
-                        NudgeX is being built together with teams who deal with follow-ups every day.
+                        NudgeX is being built together with teams who deal with follow-ups on a daily.
                         <br />
                         Early partners help shape what launches — and what comes after.
                     </p>
@@ -27,6 +27,8 @@ export default function FinalCTA() {
                         <h3 className="mb-8 text-2xl font-semibold text-white md:text-[32px]">
                             Join as an early partner
                         </h3>
+
+                        <h2 className="mb-8 text-2xl font-semibold text-white md:text-[26px]">If your team follows up with people, customers, candidates, or partners — we’d love your input.</h2>
 
                         <div className="mx-auto max-w-[520px]">
                             <WaitlistForm source="footer" className="max-w-[500px] mx-auto" />

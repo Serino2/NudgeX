@@ -19,19 +19,23 @@ export default function IntroOverlay({ oncePerSession = true }: IntroOverlayProp
             sessionStorage.setItem("nx_intro_seen", "1");
         }
 
-        setShow(true);
+        // Defer state update to avoid sync setState in effect
+        const showTimer = window.setTimeout(() => {
+            setShow(true);
+        }, 0);
 
         // lock scroll while visible
         const prev = document.body.style.overflow;
         document.body.style.overflow = "hidden";
 
-        const t = window.setTimeout(() => {
+        const hideTimer = window.setTimeout(() => {
             setShow(false);
             document.body.style.overflow = prev;
-        }, 1200); // duur van splash
+        }, 1200);
 
         return () => {
-            window.clearTimeout(t);
+            window.clearTimeout(showTimer);
+            window.clearTimeout(hideTimer);
             document.body.style.overflow = prev;
         };
     }, [oncePerSession]);
@@ -63,12 +67,12 @@ export default function IntroOverlay({ oncePerSession = true }: IntroOverlayProp
                         </div>
 
                         <div className="mt-4 text-6xl font-extrabold md:text-7xl">
-              <span className="bg-gradient-to-br from-white to-[#00d4ff] bg-clip-text text-transparent">
-                Nudge
-              </span>
-                            <span className="ml-2 bg-gradient-to-br from-[#00d4ff] to-[#00ff88] bg-clip-text text-transparent">
-                X
-              </span>
+                            <span className="bg-gradient-to-br from-white to-[#00d4ff] bg-clip-text text-transparent">
+                                Nudge
+                            </span>
+                            <span className="ml-2 bg-gradient-to-br from-[#00d4ff] to-[#0048d9] bg-clip-text text-transparent">
+                            X
+                            </span>
                         </div>
 
                         <div className="mt-4 text-sm text-white/60">

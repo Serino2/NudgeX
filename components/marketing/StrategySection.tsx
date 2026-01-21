@@ -9,21 +9,21 @@ const stages = [
     {
         n: 1,
         title: "Deliberately focused first version",
-        text: "The first version of NudgeX is intentionally narrow",
+        text: "So your real problems don’t get buried",
         widthClass: "w-full",
         bgClass: "bg-gradient-to-br from-[#00d4ff]/20 to-[#0099ff]/10",
     },
     {
         n: 2,
         title: "Building the core",
-        text: "We're building the core of what matters most",
+        text: "So follow-ups work before automation",
         widthClass: "w-[85%]",
         bgClass: "bg-gradient-to-br from-[#00d4ff]/10 to-[#0099ff]/5",
     },
     {
         n: 3,
         title: "Foundation first",
-        text: "Because everything else builds on this",
+        text: "So you don’t have to relearn the tool later",
         widthClass: "w-[70%]",
         bgClass: "bg-gradient-to-br from-[#00d4ff]/10 to-[#0099ff]/5",
     },
@@ -34,7 +34,7 @@ export default function StrategySection() {
         <section className="py-[100px] text-center" id="how">
             <Container>
                 <RevealOnView>
-                    <h2 className="mb-10 text-4xl font-bold md:text-[48px]">Where we start</h2>
+                    <h2 className="mb-10 text-4xl font-bold md:text-[48px]">Starting with what actually matters</h2>
                 </RevealOnView>
 
                 <StaggerOnView>

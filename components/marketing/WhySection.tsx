@@ -6,7 +6,7 @@ import StaggerOnView, { staggerItem } from "@/components/marketing/StaggerOnView
 import { motion } from "framer-motion";
 
 const problems = [
-    "Responding too late to new leads",
+    "Responding too late to important follow-ups",
     "No clear overview of open follow-ups",
     "Follow-ups slipping through the cracks",
     "Spending too much time on manual follow-ups",
@@ -19,11 +19,12 @@ export default function WhySection() {
 
             <Container className="relative">
                 <RevealOnView>
-                    <h2 className="mb-6 text-4xl font-bold md:text-[48px]">Why this exists</h2>
+                    <h2 className="mb-6 text-4xl font-bold md:text-[48px]">Does this sound familiar?</h2>
                 </RevealOnView>
 
                 <RevealOnView delay={0.08}>
-                    <p className="mb-10 text-xl text-white/60 md:text-2xl">Does this sound familiar?</p>
+                    <p className="mb-3 text-xl text-white/60 md:text-2xl">Whether you’re in sales, recruitment, customer success, partnerships, or ops </p>
+                    <p className="mb-10 text-xl text-white/60 md:text-2xl">This pattern shows up everywhere</p>
                 </RevealOnView>
 
                 <StaggerOnView stagger={0.06}>

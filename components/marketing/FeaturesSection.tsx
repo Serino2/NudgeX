@@ -7,10 +7,10 @@ import { motion } from "framer-motion";
 
 const blocks = [
     {
-        title: "Never lose track of stalled leads",
+        title: "Never lose track of stalled threads",
         paragraphs: [
-            "Leads go quiet for many reasons — and they're easy to miss when everything lives across inboxes, CRM views, and spreadsheets.",
-            "NudgeX helps you instantly see which leads need attention, where momentum is slowing down, and what deserves focus right now — so nothing slips through the cracks.",
+            "Threads go quiet for many reasons — and they're easy to miss when everything lives across inboxes, CRM views, and spreadsheets.",
+            "NudgeX helps you instantly see which threads need attention, where momentum is slowing down, and what deserves focus right now — so nothing slips through the cracks.",
         ],
     },
     {

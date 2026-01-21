@@ -63,7 +63,7 @@ export default function BenefitsSection() {
 
                                 <div className="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-[#00d4ff] to-[#0099ff] transition-transform duration-300 group-hover:scale-x-100" />
 
-                                {/* Hover styling zonder transform-jank */}
+                                {/* Hover styling without transform-jank */}
                                 <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [background:radial-gradient(circle_at_50%_0%,rgba(0,212,255,0.10),transparent_60%)]" />
                             </motion.div>
                         ))}

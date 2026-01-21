@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     try {
         const { email, source } = await request.json()
 
-        // Validatie
+        // Validate
         if (!email || !email.includes('@')) {
             return NextResponse.json(
                 { error: 'Please enter a valid email address' },
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
             )
         }
 
-        // Check of email al bestaat
+        // Check if email already exists
         const existing = await prisma.waitlistEntry.findUnique({
             where: { email: email.toLowerCase() }
         })
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
             )
         }
 
-        // Maak nieuwe entry
+        // Make new entry
         const entry = await prisma.waitlistEntry.create({
             data: {
                 email: email.toLowerCase(),
@@ -43,39 +43,6 @@ export async function POST(request: Request) {
         console.error('Waitlist error:', err)
         return NextResponse.json(
             { error: 'Something went wrong. Please try again.' },
-            { status: 500 }
-        )
-    }
-}
-
-// GET route om alle waitlist entries op te halen (optioneel, voor admin)
-export async function GET() {
-    try {
-        const entries = await prisma.waitlistEntry.findMany({
-            orderBy: { createdAt: 'desc' }
-        })
-
-        const bySource: Record<string, number> = {}
-
-        for (const entry of entries) {
-            const source = entry.source || 'unknown'
-            if (bySource[source]) {
-                bySource[source]++
-            } else {
-                bySource[source] = 1
-            }
-        }
-
-        const stats = {
-            total: entries.length,
-            bySource
-        }
-
-        return NextResponse.json({ entries, stats })
-    } catch (err) {
-        console.error('Failed to fetch waitlist:', err)
-        return NextResponse.json(
-            { error: 'Failed to fetch waitlist' },
             { status: 500 }
         )
     }

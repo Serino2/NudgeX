@@ -10,7 +10,7 @@ type Props = {
     y?: number;
     duration?: number;
     once?: boolean;
-    amount?: number;         // 0..1 (hoeveel zichtbaar voordat het triggert)
+    amount?: number;         // 0..1 (how many visible before trigger)
 };
 
 export default function RevealOnView({
@@ -27,7 +27,7 @@ export default function RevealOnView({
     const inView = useInView(ref, {
         once,
         amount,
-        margin: "0px 0px -100px 0px", // Triggert 100px voordat het in view komt
+        margin: "0px 0px -100px 0px", // Triggers 100px before it appears in view
     });
 
     const transition: Transition = {
