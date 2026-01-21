@@ -77,4 +77,4 @@ Core SaaS services live in a separate codebase.
 
 Private — all rights reserved.
 
-something - it really doesn't matter - serino 2026
+something - it really doesn't matter - 2026
