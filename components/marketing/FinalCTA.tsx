@@ -46,6 +46,14 @@ export default function FinalCTA() {
                         </div>
                     </div>
                 </RevealOnView>
+                <div className="mt-12 text-center">
+                    <a
+                        href="/about"
+                        className="text-sm text-white/40 hover:text-white transition"
+                    >
+                        About NudgeX
+                    </a>
+                </div>
             </Container>
         </section>
     );
