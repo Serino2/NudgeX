@@ -14,7 +14,7 @@ export default function FinalCTA() {
                     <p className="mx-auto mb-14 max-w-[700px] text-lg text-white/60">
                         NudgeX is being built together with teams who deal with follow-ups on a daily.
                         <br />
-                        Early partners help shape what launches — and what comes after.
+                        Early partners help shape what launches and what comes after.
                     </p>
                 </RevealOnView>
 

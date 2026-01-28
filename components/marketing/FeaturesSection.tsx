@@ -9,8 +9,8 @@ const blocks = [
     {
         title: "Never lose track of stalled threads",
         paragraphs: [
-            "Threads go quiet for many reasons — and they're easy to miss when everything lives across inboxes, CRM views, and spreadsheets.",
-            "NudgeX helps you instantly see which threads need attention, where momentum is slowing down, and what deserves focus right now — so nothing slips through the cracks.",
+            "Threads go quiet for many reasons and they're easy to miss when everything lives across inboxes, CRM views, and spreadsheets.",
+            "NudgeX helps you instantly see which threads need attention, where momentum is slowing down, and what deserves focus right now so nothing slips through the cracks.",
         ],
     },
     {
@@ -25,7 +25,7 @@ const blocks = [
     {
         title: "Stay fully in control",
         paragraphs: [
-            "Automation should support your team — not replace judgment.",
+            "Automation should support your team, not replace judgment.",
             "With NudgeX, nothing gets sent automatically. You review every follow-up, adjust tone and wording when needed, and decide exactly what goes out. Always.",
             "You stay in control, while NudgeX does the heavy lifting.",
         ],
