@@ -19,7 +19,7 @@ const benefits = [
         n: "02",
         text: (
             <>
-                Early teams don&apos;t just get notified — they help shape{" "}
+                Early teams don&apos;t just get notified, they help shape{" "}
                 <span className="nx-highlight">NudgeX</span> around real follow-up problems.
             </>
         ),

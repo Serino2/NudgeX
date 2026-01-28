@@ -101,7 +101,7 @@ export default function WhySection() {
                     </p>
 
                     <p className="mt-8 text-lg font-semibold text-white md:text-xl">
-                        NudgeX exists to bring follow-ups back together —
+                        NudgeX exists to bring follow-ups back together
                         <br />
                         with clarity first, intelligence second, and humans always in control.
                     </p>

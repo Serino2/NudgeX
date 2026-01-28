@@ -73,7 +73,7 @@ export default function Hero() {
                     <RevealOnView delay={0.2} y={22}>
                         <p className="mx-auto mb-10 max-w-[800px] text-xl text-white/60 md:text-2xl">
                             We&apos;re building NudgeX to help teams follow up with clarity,
-                            consistency, and control — across any workflow.
+                            consistency, and control across any workflow.
                         </p>
                     </RevealOnView>
 
